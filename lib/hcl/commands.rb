@@ -75,6 +75,15 @@ module HCl
         puts "No running timers found."
       end
     end
+    
+    def current
+      entry = DayEntry.with_timer
+      if entry
+        puts "#{entry} (at #{current_time})"
+      else
+        puts "No running timers found."
+      end
+    end
 
     def show *args
       date = args.empty? ? nil : Chronic.parse(args.join(' '))
